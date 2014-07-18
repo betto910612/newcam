@@ -9,7 +9,7 @@
         <title>camera</title>
         <script src="phonegap.js"></script>
 <script type="text/javascript">
-            //声明照相参数
+
             var cameraoptions = { quality : 60,
                 destinationType : Camera.DestinationType.FILE_URI,
                 sourceType : Camera.PictureSourceType.CAMERA,
@@ -24,9 +24,9 @@
             };
 
             function onSuccess(imageData){
-                //获取 pic 对象
+            
                 var image = document.getElementById('pic');
-                //根据拍照参数的返回数据类型来设置图片
+                
                 if (cameraoptions.destinationType ==Camera.DestinationType.FILE_URI){
                     image.src = imageData;
                 }
@@ -37,7 +37,7 @@
             function onError(){
 
             }
-            //拍照返回文件uri
+           
             function takepic(){
                 cameraoptions ={sourceType : Camera.PictureSourceType.CAMERA,
                     destinationType : Camera.DestinationType.FILE_URI,
@@ -45,7 +45,7 @@
                     targetHeight : 240};
                 navigator.camera.getPicture(onSuccess,onError,cameraoptions);
             }
-            //拍照返回base64字符串
+           
             function takepicbase64(){
                 cameraoptions ={sourceType : Camera.PictureSourceType.CAMERA,
                     destinationType : Camera.DestinationType.DATA_URL,
@@ -53,7 +53,7 @@
                     targetHeight : 240};
                 navigator.camera.getPicture(onSuccess,onError,cameraoptions);
             }
-            //读取相册
+         
             function openalbum(){
                 cameraoptions ={sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
                     destinationType : Camera.DestinationType.FILE_URI};
@@ -65,13 +65,14 @@
     <body>
         <div data-role="page" id="navigator.camera">
         <div data-role="header">
-            <h3>拍照示例</h3>
+            <h3>Fotos</h3>
         </div>
         <div data-role="content">
-            <a href="#" data-role="button" id="camera" onclick="takepic()">拍照file_uri</a>
-            <a href="#" data-role="button" id="camerabase64" onclick="takepicbase64()">拍照base64</a>
-            <a href="#" data-role="button" id="album" onclick="openalbum()">打开相册</a>
+            <a href="#" data-role="button" id="camera" onclick="takepic()">Foto file_uri</a>
+            <a href="#" data-role="button" id="camerabase64" onclick="takepicbase64()">Foto base64</a>
+            <a href="#" data-role="button" id="album" onclick="openalbum()">Galeria</a>
             <img id="pic" src="" />
+            
         </div>
     </div>
     </body>
